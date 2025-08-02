@@ -13,6 +13,7 @@ from rich.prompt import Prompt
 from rich.table import Table
 
 LOG_PATH = "logs/qa_log.jsonl"
+client = openai.OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
 
 # Simulate noisy/out-of-order data
 def simulate_noise(posts, shuffle=True, drop_rate=0.1):
@@ -57,7 +58,7 @@ def log_qa(question, answer, confidence, failed):
 def ask_openai(context, question):
     prompt = f"Thread:\n{context}\n\nQuestion: {question}\nAnswer:"
     try:
-        response = openai.ChatCompletion.create(
+        response = client.chat.completions.create(
             model="gpt-3.5-turbo",
             messages=[
                 {"role": "system", "content": "You are a robust Q&A assistant for noisy Reddit threads."},
@@ -66,8 +67,8 @@ def ask_openai(context, question):
             temperature=0.2,
             max_tokens=256
         )
-        answer = response['choices'][0]['message']['content']
-        confidence = 0.9 if response['choices'][0]['finish_reason'] == 'stop' else 0.5
+        answer = response.choices[0].message.content
+        confidence = 0.9 if response.choices[0].finish_reason == 'stop' else 0.5
         failed = False
     except Exception as e:
         answer = f"[Error: {e}]"

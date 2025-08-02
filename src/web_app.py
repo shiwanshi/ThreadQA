@@ -8,6 +8,8 @@ import openai
 import os
 from datetime import datetime
 
+client = openai.OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
+
 def load_posts(path):
     with open(path, 'r') as f:
         return json.load(f)
@@ -26,7 +28,7 @@ def get_context(posts):
 
 def ask_openai(context, question):
     prompt = f"Thread:\n{context}\n\nQuestion: {question}\nAnswer:"
-    response = openai.ChatCompletion.create(
+    response = client.chat.completions.create(
         model="gpt-3.5-turbo",
         messages=[
             {"role": "system", "content": "You are a robust Q&A assistant for noisy Reddit threads."},
@@ -35,8 +37,8 @@ def ask_openai(context, question):
         temperature=0.2,
         max_tokens=256
     )
-    answer = response['choices'][0]['message']['content']
-    confidence = 0.9 if response['choices'][0]['finish_reason'] == 'stop' else 0.5
+    answer = response.choices[0].message.content
+    confidence = 0.9 if response.choices[0].finish_reason == 'stop' else 0.5
     failed = False
     return answer, confidence, failed
 
