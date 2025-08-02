@@ -1,0 +1,32 @@
+[
+  {
+    "timestamp": "2025-07-30T12:01:00Z",
+    "author": "userA",
+    "message": "What's the best way to learn Python?"
+  },
+  {
+    "timestamp": "2025-07-30T12:02:10Z",
+    "author": "userB",
+    "message": "I think online courses are great."
+  },
+  {
+    "timestamp": "2025-07-30T12:03:05Z",
+    "author": "userC",
+    "message": "Check out freeCodeCamp!"
+  },
+  {
+    "timestamp": "2025-07-30T12:04:00Z",
+    "author": "userD",
+    "message": "Did you mean for data science or web dev?"
+  },
+  {
+    "timestamp": "2025-07-30T12:05:00Z",
+    "author": "userA",
+    "message": "Mainly for data science."
+  },
+  {
+    "timestamp": "2025-07-30T12:06:00Z",
+    "author": "userE",
+    "message": "I prefer books, but that's just me."
+  }
+]
