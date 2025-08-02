@@ -1,15 +1,12 @@
 # ThreadQA
 
-A robust LLM-powered Q&A system for extracting answers from messy, multi-turn Reddit threads. Designed for research on robust LLMs, knowledge extraction, and noisy corpora (inspired by Dr. Kuan-Hao Huang, Texas A&M FLAIR Lab).
-
+A robust LLM-powered Q&A system for extracting answers from messy, multi-turn Reddit threads. Designed for research on robust LLMs, knowledge extraction, and noisy corpora.
 ## Research Alignment
-ThreadQA is inspired by the work of Dr. Kuan-Hao Huang and the FLAIR Lab at Texas A&M University. This project aims to address key challenges in robust, trustworthy, and generalizable language AI systems, including:
+This project aims to address key challenges in robust, trustworthy, and generalizable language AI systems, including:
 - **Robustness to Noise:** Handles messy, multi-turn Reddit threads with speaker changes, off-topic comments, and out-of-order data.
 - **Knowledge Extraction:** Extracts structured answers from unstructured, real-world corpora.
 - **Trust & Reliability:** Logs confidence scores and failed queries to support trustworthy QA.
 - **Extensibility:** Designed for multimodal, multilingual, and compositional reasoning research.
-
-If you are interested in large language models, multimodal learning, or multilingual NLP, please reach out to Dr. Huang at khhuang [at] tamu [dot] edu.
 
 ## Features
 - Ingest Reddit thread data (JSON, CSV, or live via Reddit API)
@@ -65,10 +62,3 @@ A: According to userB, online courses are great. userC suggests freeCodeCamp, wh
 - Simulate out-of-order/noisy data
 - Add speaker attribution
 - Multilingual/multimodal extension stub in `src/multimodal_extension.py`
-
-## Citation & Contact
-For research, cite this repo and contact the author for collaboration.
-
----
-
-> “This project is designed to demonstrate my interest in robust, trustworthy, and generalizable LLMs, and my alignment with the FLAIR Lab’s research directions. I am excited to contribute to the lab’s mission and explore new frontiers in NLP and multimodal AI.”
